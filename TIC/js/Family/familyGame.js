@@ -1,6 +1,6 @@
 // Botón para ver el video nuevamente
 document.getElementById("watch-video").addEventListener("click", function () {
-  window.location.href = "/html/Family/Notification/notification.html";
+  window.location.href = "/TIC2025/TIC/html/Family/Notification/notification.html";
 });
 
 // Variables para el control de selección
@@ -51,7 +51,7 @@ if (nextLevelBtn) {
 
       // Redirigir al nivel siguiente
       const nextLevel = parseInt(level, 10) + 1;
-      window.location.href = `/html/Family/family${nextLevel}.html`;
+      window.location.href = `/TIC2025/TIC/html/Family/family${nextLevel}.html`;
     }
   });
 }
@@ -74,7 +74,7 @@ if (finishBtn) {
       const wrongCount = localStorage.getItem("wrong") || "0";
 
       // Redirigir a feedback.html con los parámetros correct y wrong en la URL
-      window.location.href = `/html/Family/feedback.html?correct=${correctCount}&wrong=${wrongCount}`;
+      window.location.href = `/TIC2025/TIC/html/Family/feedback.html`;
     }
   });
 }
