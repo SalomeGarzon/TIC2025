@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feelings Game</title>
+    <link rel="stylesheet" href="/css/feel1.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <img src="/images/logo.png" alt="Logo" class="logo">
+            <ul>
+                <li><a href="/html/adj.html">Adjectives</a></li>
+                <li><a href="#">Feelings</a></li>
+                <li><a href="#">Numbers</a></li>
+                <li><a href="/html/Family/family.html">Family</a></li>
+                <li><a href="#">What Time Is It?</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="instructions">
+            <h2>Select the correct image</h2>
+            <!-- Barra de progreso para mostrar el avance del juego -->
+            <div id="progressContainer" style="background: lightgray; border-radius: 10px; padding: 3px; margin: 20px;">
+                <div id="progressBar" style="width: 0%; background: green; height: 20px; border-radius: 8px;"></div>
+            </div>
+            
+        </section>
+
+        <section class="game">
+            <div class="background">
+                <img src="/images/parque.jpg" alt="Background" class="bg-image">
+                <div class="images">
+                    <img src="/images/fat.jpg" alt="Happy Girl" class="option">
+                    <img src="/images/old.jpg" alt="Happy Boy" class="option">
+                </div>
+                <div class="question-box">
+                    <p>HE IS HAPPY</p>
+                </div>
+            </div>
+            
+        </section>
+
+        <button class="next-level" disabled>Next Level</button>
+    </main>
+
+    <script src="/js/feel1.js"></script>
+</body>
+</html>

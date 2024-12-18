@@ -1,0 +1,137 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+}
+
+header {
+    background-color: #ffeb3b;
+    padding: 10px 20px;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    height: 50px;
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar li {
+    margin: 0 10px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.instructions {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.background {
+    position: relative;
+    width: 80%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.bg-image {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.images {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+}
+
+.option {
+    width: 200px;
+    cursor: pointer;
+    border: 3px solid transparent;
+    border-radius: 10px;
+    transition: border-color 0.3s, box-shadow 0.3s; /* Transición para borde y sombra */
+}
+
+.option:hover {
+    border-color: #4CAF50; /* Cambio de borde al hacer hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Agregar sombra al hacer hover */
+}
+
+.option.selected {
+    border-color: blue;
+    border-width: 5px;
+}
+
+.next-level.active {
+    background-color: #4caf50;
+    cursor: pointer;
+}
+
+.next-level.active:hover {
+    background-color: #45a049;
+}
+
+.question-box {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+}
+
+.next-level {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #ccc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: not-allowed;
+    transition: background-color 0.3s;
+}
+
+.next-level:not(.active):hover {
+    background-color: #ccc;
+}
+
+.next-level.active:hover {
+    background-color: #45a049;
+}
