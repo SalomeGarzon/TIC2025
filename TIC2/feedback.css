@@ -1,0 +1,67 @@
+/* Feedback.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fefae0;
+    text-align: center;
+    padding: 50px;
+}
+
+.feedback-container {
+    background-color: #ffd700;
+    padding: 20px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#feedback-text {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.buttons button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.retry-btn {
+    background-color: #f0a500;
+    color: white;
+}
+
+.next-btn {
+    background-color: #4caf50;
+    color: white;
+}
+
+.retry-btn:hover, .next-btn:hover {
+    opacity: 0.8;
+}
+
+
+.feedback-image {
+    display: inline-block;
+    margin: 10px;
+    position: relative;
+}
+.feedback-image img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+.feedback-image.correct {
+    border: 3px solid green;
+}
+.feedback-image.incorrect {
+    border: 3px solid red;
+    filter: grayscale(100%) blur(3px);
+}

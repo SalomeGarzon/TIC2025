@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adjectives Game</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/Adjetives/adjetives.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leader-line@1.0.7/leader-line.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ffd700;">
+        <div class="container-fluid">
+          <!-- Logo -->
+          <a class="navbar-brand" href="/html/index.html" tabindex="0">
+            <img
+              src="/images/EnglishAdventure.webp"
+              alt="English Adventure"
+              height="90"
+              class="rounded"
+            />
+          </a>
+          <!-- Toggle button -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <!-- Navigation Links -->
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/html/Adjetives/adjetives1.html" tabindex="0">Adjectives</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/html/Feelings/level1.html" tabindex="0">Feelings</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/html/Family/family.html" tabindex="0">Family</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/html/Numbers/numbers.html" tabindex="0">Numbers</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <section class="instructions" tabindex="0">
+      <p>Select the adjective with the corresponding image.</p>
+    </section>
+
+    <main>
+      <section class="game-container">
+        <!-- Images and dropdowns -->   
+          <div class="image-item">
+            <img src="/images/small.png" alt="Something that is not big" class="img-item" tabindex="0" data-answer="Small"/>
+            <select class="adjective-dropdown"tabindex="0">
+              <option value="Beautiful">Beautiful</option>
+              <option value="Short">Short</option>
+              <option value="Small">Small</option>
+              <option value="Fat">Fat</option>
+              <option value="Young">Young</option>
+              <option value="Big">Big</option>
+              <option value="Tall">Tall</option>
+              <option value="Old">Old</option>
+            </select>
+          </div>
+
+          <div class="image-item">
+            <img src="/images/Beautiful.avif" alt="Something that looks really nice or makes you happy to see" class="img-item" tabindex="0" data-answer="Beautiful"/>
+            <select class="adjective-dropdown" tabindex="0">
+              <option value="Beautiful">Beautiful</option>
+              <option value="Short">Short</option>
+              <option value="Small">Small</option>
+              <option value="Fat">Fat</option>
+              <option value="Young">Young</option>
+              <option value="Big">Big</option>
+              <option value="Tall">Tall</option>
+              <option value="Old">Old</option>
+            </select>
+          </div>
+    
+          <div class="image-item">
+            <img src="/images/fat.jpg" alt="Something or someone that looks a little wide or round" class="img-item" tabindex="0" data-answer="Fat"/>
+            <select class="adjective-dropdown" tabindex="0">
+              <option value="Beautiful">Beautiful</option>
+              <option value="Short">Short</option>
+              <option value="Small">Small</option>
+              <option value="Fat">Fat</option>
+              <option value="Young">Young</option>
+              <option value="Big">Big</option>
+              <option value="Tall">Tall</option>
+              <option value="Old">Old</option>
+            </select>
+          </div>
+    
+          <div class="image-item">
+            <img src="/images/big.png" alt="Something that is not small" class="img-item" tabindex="0" data-answer="Big"/>
+            <select class="adjective-dropdown" tabindex="0">
+              <option value="Beautiful">Beautiful</option>
+              <option value="Short">Short</option>
+              <option value="Small">Small</option>
+              <option value="Fat">Fat</option>
+              <option value="Young">Young</option>
+              <option value="Big">Big</option>
+              <option value="Tall">Tall</option>
+              <option value="Old">Old</option>
+            </select>
+          </div>
+    
+          <div class="image-item">
+            <img src="/images/tall.jpg" alt="Someone or something that is very high up" class="img-item" tabindex="0" data-answer="Tall"/>
+            <select class="adjective-dropdown" tabindex="0">
+              <option value="Beautiful">Beautiful</option>
+              <option value="Short">Short</option>
+              <option value="Small">Small</option>
+              <option value="Fat">Fat</option>
+              <option value="Young">Young</option>
+              <option value="Big">Big</option>
+              <option value="Tall">Tall</option>
+              <option value="Old">Old</option>
+            </select>
+          </div>
+
+          <div class="image-item">
+            <img src="/images/young.png" alt="Someone who is not old" class="img-item" tabindex="0" data-answer="Young"/>
+            <select class="adjective-dropdown" tabindex="0">
+              <option value="Beautiful">Beautiful</option>
+              <option value="Short">Short</option>
+              <option value="Small">Small</option>
+              <option value="Fat">Fat</option>
+              <option value="Young">Young</option>
+              <option value="Big">Big</option>
+              <option value="Tall">Tall</option>
+              <option value="Old">Old</option>
+            </select>
+          </div>
+    
+          <div class="image-item">
+            <img src="/images/old.jpg" alt="Someone or something that has been around for a long time" class="img-item" tabindex="0" data-answer="Old"/>
+            <select class="adjective-dropdown" tabindex="0">
+              <option value="Beautiful">Beautiful</option>
+              <option value="Short">Short</option>
+              <option value="Small">Small</option>
+              <option value="Fat">Fat</option>
+              <option value="Young">Young</option>
+              <option value="Big">Big</option>
+              <option value="Tall">Tall</option>
+              <option value="Old">Old</option>
+            </select>
+          </div>
+
+          <div class="image-item">
+            <img src="/images/short.jpg" alt="Not very tall or long" class="img-item" tabindex="0" data-answer="Short"/>
+            <select class="adjective-dropdown" tabindex="0">
+              <option value="Beautiful">Beautiful</option>
+              <option value="Short">Short</option>
+              <option value="Small">Small</option>
+              <option value="Fat">Fat</option>
+              <option value="Young">Young</option>
+              <option value="Big">Big</option>
+              <option value="Tall">Tall</option>
+              <option value="Old">Old</option>
+            </select>
+          </div>
+        
+      </section>
+      
+      <button id="finalizeBtn" tabindex="0">Finish</button>
+      <div id="feedback" tabindex="0"></div>
+    </main>
+
+    <script src="/js/Adjetives/adjetives1.js"></script>
+  </body>
+</html> 

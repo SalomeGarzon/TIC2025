@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Completion</title>
+  <link rel="stylesheet" href="/css/Feelings/completion.css">
+</head>
+<body>
+  <section class="completion-container">
+    <h1 tabindex="0" role="heading" aria-level="1">Game Results</h1>
+
+    <!-- Contenedor para errores -->
+    <div id="error-list" class="result-container" role="region" aria-labelledby="error-header">
+      <h2 tabindex="0" id="error-header" tabindex="0" role="heading" aria-level="2">Errors:</h2>
+      <!-- Los errores se generarán dinámicamente aquí -->
+    </div>
+
+    <!-- Contenedor para aciertos -->
+    <div id="correct-list" class="result-container" role="region" aria-labelledby="correct-header">
+      <h2 tabindex="0" id="correct-header" tabindex="0" role="heading" aria-level="2">Correct Answers:</h2>
+      <!-- Las respuestas correctas se generarán dinámicamente aquí -->
+    </div>
+
+    <!-- Botón para reiniciar -->
+    <button tabindex="0" onclick="restartGame()" class="restart-button">Restart Game</button>
+  </section>
+
+  <script src="/js/Feelings/completion.js"></script>
+</body>
+</html>
