@@ -10,5 +10,5 @@ document.getElementById("wrong-result").innerHTML = `Wrong Answers: ${wrong} <sp
 // Reiniciar juego
 document.getElementById("restart").addEventListener("click", () => {
   sessionStorage.clear(); // Limpiar datos de sessionStorage
-  window.location.href = "TIC2/html//Family/family.html"; // Redirigir a la página inicial
+  window.location.href = "/TIC2/html//Family/family.html"; // Redirigir a la página inicial
 });

@@ -1,6 +1,6 @@
   // Botón para ver el video nuevamente
   document.getElementById("watch-video").addEventListener("click", function () {
-    window.location.href = "TIC2/html/Family/Notification/notification.html";
+    window.location.href = "/TIC2/html/Family/Notification/notification.html";
   });
 
   // Inicializar contadores de aciertos y errores en sessionStorage
@@ -40,7 +40,7 @@
           if (finishBtn) finishBtn.disabled = false;
         }
       } else if (element.id === "watch-video") {
-        window.location.href = "TIC2/html/Family/Notification/notification.html";
+        window.location.href = "/TIC2/html/Family/Notification/notification.html";
       }
     });
   });
@@ -94,7 +94,7 @@
 
         const nextLevel = level + 1;
         if (level < totalLevels) {
-          window.location.href = `TIC2/html/Family/family${nextLevel}.html`;
+          window.location.href = `/TIC2/html/Family/family${nextLevel}.html`;
         }
       }
     });
@@ -113,7 +113,7 @@
         const wrongCount = sessionStorage.getItem("wrong");
 
         // Redirigir a la página de feedback
-        window.location.href = `TIC2/html/Family/feedback.html?correct=${correctCount}&wrong=${wrongCount}`;
+        window.location.href = `/TIC2/html/Family/feedback.html?correct=${correctCount}&wrong=${wrongCount}`;
       }
     });
   }
