@@ -4,7 +4,7 @@ body {
   text-align: center;
   margin: 0;
   padding: 0;
-  background: url('/TIC2/images/back.png') no-repeat center center fixed;
+  background: url('TIC2/images/back.png') no-repeat center center fixed;
   background-size: cover;
   font-weight: bold;
   font-size: 20px;
