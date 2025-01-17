@@ -4,16 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Notification</title>
-  <link rel="stylesheet" href="/css/Family/Notification/notification.css">
+  <link rel="stylesheet" href="/TIC2/css/Family/Notification/notification.css">
 </head>
 <body>
   <div class="notification-container">
     <div class="notification-box">
-      <h2>Warning!</h2>
-      <p>If you go back to watch the video, you will lose all your progress. Do you want to continue?</p>
+      <h2 tabindex="0">Warning!</h2>
+      <p tabindex="0">If you go back to watch the video, you will lose all your progress. Do you want to continue?</p>
       <div class="notification-buttons">
-        <button id="cancel-btn">Cancel</button>
-        <button id="accept-btn">Accept</button>
+        <button tabindex="0" id="cancel-btn">Cancel</button>
+        <button tabindex="0" id="accept-btn">Accept</button>
       </div>
     </div>
   </div>
@@ -24,7 +24,7 @@
     });
 
     document.getElementById("accept-btn").addEventListener("click", function () {
-      window.location.href = "/html/Family/family.html"; // Redirect to the video page
+      window.location.href = "/TIC2/html/Family/family.html"; // Redirect to the video page
     });
   </script>
 </body>

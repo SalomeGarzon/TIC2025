@@ -33,5 +33,5 @@ document.addEventListener("DOMContentLoaded", () => {
 // Reiniciar el juego
 function restartGame() {
   localStorage.removeItem("gameResults"); // Limpia los datos almacenados
-  window.location.href = "/html/Feelings/level1.html"; // Redirige al primer nivel
+  window.location.href = "/TIC2/html/Feelings/level1.html"; // Redirige al primer nivel
 }

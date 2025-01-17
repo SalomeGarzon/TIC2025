@@ -1,10 +1,10 @@
 body {
   font-family: Arial, sans-serif;
-  color: #333;
+  color: #000000;
   text-align: center;
   margin: 0;
   padding: 0;
-  background: url('/images/back.png') no-repeat center center fixed;
+  background: url('/TIC2/images/back.png') no-repeat center center fixed;
   background-size: cover;
   font-weight: bold;
   font-size: 20px;
@@ -58,7 +58,7 @@ header {
 }
 
 .question {
-  font-size: 24px;
+  font-size: 29px;
   margin: 20px 0;
 }
 
@@ -112,4 +112,17 @@ button:hover {
 .feedback {
   font-size: 20px;
   margin: 20px 0;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  overflow: hidden;
 }

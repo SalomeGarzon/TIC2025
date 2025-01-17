@@ -31,75 +31,132 @@ const numbers = [
   { num: 1000, word: "one thousand" }
 ];
 
-let currentIndex = 0;
+// Variables del juego
 let selectedNumbers = [];
+let currentIndex = 0;
 
-// Shuffle and pick 10 random numbers
-function shuffleNumbers() {
-  const shuffled = numbers.sort(() => Math.random() - 0.5);
-  selectedNumbers = shuffled.slice(0, 10);
-}
-
-// Display the current number
+// Elementos del DOM
 const numberElement = document.getElementById("number");
 const feedbackElement = document.getElementById("feedback");
 const answerInput = document.getElementById("answer");
+const submitButton = document.getElementById("submit-button");
 const restartButton = document.getElementById("restart-button");
 
-function loadNumber() {
-  numberElement.textContent = selectedNumbers[currentIndex].num;
-  feedbackElement.textContent = "";
-  answerInput.value = "";
+// Función para seleccionar 10 números aleatorios
+function shuffleNumbers() {
+  selectedNumbers = [...numbers].sort(() => Math.random() - 0.5).slice(0, 10);
 }
 
+// Función para hablar el texto
+function speakText(text) {
+  if ("speechSynthesis" in window) {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = "en-US"; // Idioma inglés
+    window.speechSynthesis.speak(utterance);
+  } else {
+    console.warn("SpeechSynthesis no está disponible en este navegador.");
+  }
+}
+
+// Mostrar y pronunciar el número actual
+function loadNumber() {
+  const currentNumber = selectedNumbers[currentIndex];
+  numberElement.textContent = currentNumber.num; // Mostrar número en pantalla
+  feedbackElement.textContent = ""; // Limpiar retroalimentación
+  answerInput.value = ""; // Limpiar entrada de respuesta
+  answerInput.focus(); // Enfocar el campo de texto al cargar un número
+
+  // Actualizar atributo aria-live para que el lector de pantalla anuncie el número
+  numberElement.setAttribute("aria-live", "assertive");
+  speakText(currentNumber.num.toString()); // Pronunciar número
+}
+
+// Verificar la respuesta
 function checkAnswer() {
   const userAnswer = answerInput.value.trim().toLowerCase();
   const correctAnswer = selectedNumbers[currentIndex].word;
 
   if (userAnswer === correctAnswer) {
-    feedbackElement.textContent = "Correct! Great job!";
+    const feedbackText = "Correct! Great job!";
+    feedbackElement.textContent = feedbackText;
     feedbackElement.style.color = "green";
-    
+
+    // Actualizar aria-live para lectores de pantalla
+    feedbackElement.setAttribute("aria-live", "assertive");
+    speakText(feedbackText); // Reproducir retroalimentación
+
     setTimeout(() => {
       currentIndex++;
-      if (currentIndex === Math.floor(selectedNumbers.length / 2)) {
-        feedbackElement.textContent = "You're halfway through!";
-        feedbackElement.style.color = "blue";
-        
-        // Continue to the next number after a short delay
-        setTimeout(() => {
-          loadNumber();
-        }, 1000);
-      } else if (currentIndex < selectedNumbers.length) {
+      if (currentIndex < selectedNumbers.length) {
         loadNumber();
       } else {
-        feedbackElement.textContent = "Congratulations! You finished the game. Well done!";
+        const finishText = "Congratulations! You finished the game. Well done!";
+        feedbackElement.textContent = finishText;
         feedbackElement.style.color = "purple";
+
+        // Actualizar aria-live para lectores de pantalla
+        feedbackElement.setAttribute("aria-live", "assertive");
+        speakText(finishText); // Reproducir mensaje final
+
         numberElement.textContent = "";
-        restartButton.style.display = "block"; // Show the restart button
-        restartButton.focus(); // Focus the button for accessibility
+        restartButton.style.display = "block"; // Mostrar botón de reinicio
+        restartButton.focus(); // Enfocar el botón para accesibilidad
       }
     }, 1000);
   } else {
-    feedbackElement.textContent = "Oops! Try again. Remember: " + correctAnswer;
+    const retryText = `Oops! Try again. Remember: ${correctAnswer}`;
+    feedbackElement.textContent = retryText;
     feedbackElement.style.color = "red";
+
+    // Actualizar aria-live para lectores de pantalla
+    feedbackElement.setAttribute("aria-live", "assertive");
+    speakText(retryText); // Reproducir retroalimentación negativa
   }
 }
 
+// Manejar eventos del teclado
+function handleKeyboardNavigation(event) {
+  switch (event.key) {
+    case "ArrowRight":
+      // Mover al botón de submit desde el campo de entrada
+      if (document.activeElement === answerInput) {
+        submitButton.focus();
+      }
+      break;
+
+    case "ArrowLeft":
+      // Mover al campo de entrada desde el botón de submit
+      if (document.activeElement === submitButton) {
+        answerInput.focus();
+      }
+      break;
+
+    case "Enter":
+      // Si el foco está en el campo de entrada o el botón, verificar la respuesta
+      if (
+        document.activeElement === answerInput ||
+        document.activeElement === submitButton
+      ) {
+        checkAnswer();
+      }
+      break;
+
+    default:
+      break;
+  }
+}
+
+// Reiniciar el juego
 function restartGame() {
   currentIndex = 0;
-  restartButton.style.display = "none"; // Hide the restart button
+  restartButton.style.display = "none"; // Ocultar botón de reinicio
   shuffleNumbers();
   loadNumber();
 }
 
-// Add keyboard accessibility to the restart button
-restartButton.addEventListener("keydown", (event) => {
-  if (event.key === "Enter" || event.key === " ") {
-    restartGame();
-  }
-});
+// Agregar eventos de teclado al documento
+document.addEventListener("keydown", handleKeyboardNavigation);
 
-// Initialize the game
+// Inicializar el juego
 shuffleNumbers();
 loadNumber();

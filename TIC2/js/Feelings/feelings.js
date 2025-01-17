@@ -1,7 +1,7 @@
 const nextLevelButton = document.getElementById("next-level");
 
-// Obtiene el nivel actual desde la URL (ejemplo: level1.html)
-const currentLevel = parseInt(window.location.pathname.match(/\d+/)?.[0] || 1);
+// Obtén el nivel actual desde la URL usando una expresión regular más precisa
+const currentLevel = parseInt(window.location.pathname.match(/level(\d+)/)?.[1] || "1", 10);
 const totalLevels = 9;
 
 // Inicializa los datos de resultados en localStorage si no existen
@@ -38,8 +38,8 @@ function updateGameResults(level, isCorrect) {
   const levelResult = {
     level,
     correct: isCorrect,
-    correctImage: `/images/Feelings/correctLevel${level}.png`, // Imagen correcta (ajústala según el nivel)
-    userImage: isCorrect ? `correctLevel${level}.png` : `incorrectLevel${level}.png`, // Imagen seleccionada
+    correctImage: `/TIC2/images/Feelings/correctLevel${level}.png`,
+    userImage: isCorrect ? `correctLevel${level}.png` : `incorrectLevel${level}.png`,
   };
 
   // Elimina resultados previos del nivel actual si existen
@@ -58,10 +58,11 @@ function updateGameResults(level, isCorrect) {
 function goToNextLevel() {
   if (currentLevel < totalLevels) {
     const nextLevel = currentLevel + 1;
-    window.location.href = `level${nextLevel}.html`;
+    const nextLevelUrl = `/TIC2/html/Feelings/level${nextLevel}.html`;
+    window.location.href = nextLevelUrl;
   } else {
     // Redirige a la página de finalización si se completaron todos los niveles
-    window.location.href = "/html/Feelings/completion-page.html";
+    window.location.href = "/TIC2/html/Feelings/completion-page.html";
   }
 }
 
@@ -71,7 +72,7 @@ nextLevelButton.addEventListener("click", goToNextLevel);
 // Maneja eventos de teclado en las opciones de imagen
 function handleKeydown(event, element) {
   if (event.key === "Enter" || event.key === " ") {
-    event.preventDefault(); // Evita el scroll con Espacio
+    event.preventDefault();
     selectImage(element);
   }
 }
@@ -82,11 +83,4 @@ function handleNextButtonKeydown(event) {
     event.preventDefault();
     goToNextLevel();
   }
-}
-
-function nextLevel() {
-  // Avanza al siguiente nivel y cambia el título
-  const levelTitle = document.getElementById('level-title');
-  levelTitle.textContent = "Level 2";  // Cambia el texto del título
-  levelTitle.focus();  // Mueve el foco al título del nivel
 }
