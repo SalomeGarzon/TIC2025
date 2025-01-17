@@ -38,7 +38,7 @@ function updateGameResults(level, isCorrect) {
   const levelResult = {
     level,
     correct: isCorrect,
-    correctImage: `/TIC2/images/Feelings/correctLevel${level}.png`,
+    correctImage: `TIC2/images/Feelings/correctLevel${level}.png`,
     userImage: isCorrect ? `correctLevel${level}.png` : `incorrectLevel${level}.png`,
   };
 
@@ -58,11 +58,11 @@ function updateGameResults(level, isCorrect) {
 function goToNextLevel() {
   if (currentLevel < totalLevels) {
     const nextLevel = currentLevel + 1;
-    const nextLevelUrl = `/TIC2/html/Feelings/level${nextLevel}.html`;
+    const nextLevelUrl = `TIC2/html/Feelings/level${nextLevel}.html`;
     window.location.href = nextLevelUrl;
   } else {
     // Redirige a la página de finalización si se completaron todos los niveles
-    window.location.href = "/TIC2/html/Feelings/completion-page.html";
+    window.location.href = "TIC2/html/Feelings/completion-page.html";
   }
 }
 

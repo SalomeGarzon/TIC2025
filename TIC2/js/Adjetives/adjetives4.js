@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Función para ir al siguiente nivel
   function goToNextLevel() {
-    window.location.href = "/TIC2/html/Adjetives/adjetives1.html";
+    window.location.href = "TIC2/html/Adjetives/adjetives1.html";
   }
 
   // Accesibilidad: Navegación con Enter y Espacio
