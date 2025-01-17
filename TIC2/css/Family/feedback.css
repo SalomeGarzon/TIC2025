@@ -1,0 +1,27 @@
+body {
+    background-color: #f5f5dc; /* Fondo color crema */
+    color: #333; /* Texto general */
+  }
+  
+  .emoji {
+    font-size: 2rem;
+    margin-left: 0.5rem;
+  }
+  
+  .result-item {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+  }
+  
+  .correct {
+    color: #008000; /* Verde para respuestas correctas */
+  }
+  
+  .wrong {
+    color: #ff0000; /* Rojo para respuestas incorrectas */
+  }
+  
+  #restart {
+    margin-top: 2rem;
+  }
+  
