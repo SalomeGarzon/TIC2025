@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <p><strong style="color: green;">Correct :</strong> ${correctCount}</p>
         <p><strong style="color: red;">Incorrect :</strong> ${incorrectCount}</p>
         <button id="retryBtn" tabndex="0">Retry Level</button>
-        <button id="nextBtn" tabindex="0">Next Level</button>
+        <button id="nextBtn" tabindex="0">Next Level ➔</button>
       `;
   
       // Agregar funcionalidades a los botones
