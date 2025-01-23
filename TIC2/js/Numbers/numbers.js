@@ -28,50 +28,52 @@ const numbers = [
   { num: 80, word: "eighty" },
   { num: 90, word: "ninety" },
   { num: 100, word: "one hundred" },
-  { num: 1000, word: "one thousand" }
+  { num: 1000, word: "one thousand" },
 ];
 
-// Variables del juego
+// Game variables
 let selectedNumbers = [];
 let currentIndex = 0;
 
-// Elementos del DOM
+// DOM Elements
 const numberElement = document.getElementById("number");
 const feedbackElement = document.getElementById("feedback");
 const answerInput = document.getElementById("answer");
 const submitButton = document.getElementById("submit-button");
 const restartButton = document.getElementById("restart-button");
+const levelDisplay = document.getElementById("level-display");
 
-// Función para seleccionar 10 números aleatorios
+// Shuffle numbers and select 10 random ones
 function shuffleNumbers() {
   selectedNumbers = [...numbers].sort(() => Math.random() - 0.5).slice(0, 10);
 }
 
-// Función para hablar el texto
+// Speak the text
 function speakText(text) {
   if ("speechSynthesis" in window) {
     const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = "en-US"; // Idioma inglés
+    utterance.lang = "en-US"; // Set language to English
     window.speechSynthesis.speak(utterance);
   } else {
-    console.warn("SpeechSynthesis no está disponible en este navegador.");
+    console.warn("SpeechSynthesis is not available in this browser.");
   }
 }
 
-// Mostrar y pronunciar el número actual
+// Load and display the current number
 function loadNumber() {
   const currentNumber = selectedNumbers[currentIndex];
-  numberElement.textContent = currentNumber.num; // Mostrar número en pantalla
-  feedbackElement.textContent = ""; // Limpiar retroalimentación
-  answerInput.value = ""; // Limpiar entrada de respuesta
-  answerInput.focus(); // Enfocar el campo de texto al cargar un número
+  numberElement.textContent = currentNumber.num; // Display number on screen
+  levelDisplay.textContent = `Level: ${currentIndex + 1}`; // Update level display
+  feedbackElement.textContent = ""; // Clear feedback
+  answerInput.value = ""; // Clear input field
+  answerInput.focus(); // Focus the input field
 
-  // Actualizar atributo aria-live para que el lector de pantalla anuncie el número
-  numberElement.setAttribute("aria-live", "assertive");
-  speakText(currentNumber.num.toString()); // Pronunciar número
+  // Announce level and number
+  const announcement = `Level ${currentIndex + 1}. Write the number ${currentNumber.num}.`;
+  speakText(announcement);
 }
 
-// Verificar la respuesta
+// Check the user's answer
 function checkAnswer() {
   const userAnswer = answerInput.value.trim().toLowerCase();
   const correctAnswer = selectedNumbers[currentIndex].word;
@@ -81,9 +83,8 @@ function checkAnswer() {
     feedbackElement.textContent = feedbackText;
     feedbackElement.style.color = "green";
 
-    // Actualizar aria-live para lectores de pantalla
     feedbackElement.setAttribute("aria-live", "assertive");
-    speakText(feedbackText); // Reproducir retroalimentación
+    speakText(feedbackText);
 
     setTimeout(() => {
       currentIndex++;
@@ -94,13 +95,13 @@ function checkAnswer() {
         feedbackElement.textContent = finishText;
         feedbackElement.style.color = "purple";
 
-        // Actualizar aria-live para lectores de pantalla
         feedbackElement.setAttribute("aria-live", "assertive");
-        speakText(finishText); // Reproducir mensaje final
+        speakText(finishText);
 
         numberElement.textContent = "";
-        restartButton.style.display = "block"; // Mostrar botón de reinicio
-        restartButton.focus(); // Enfocar el botón para accesibilidad
+        levelDisplay.textContent = ""; // Clear the level display
+        restartButton.style.display = "block"; // Show the restart button
+        restartButton.focus();
       }
     }, 1000);
   } else {
@@ -108,31 +109,27 @@ function checkAnswer() {
     feedbackElement.textContent = retryText;
     feedbackElement.style.color = "red";
 
-    // Actualizar aria-live para lectores de pantalla
     feedbackElement.setAttribute("aria-live", "assertive");
-    speakText(retryText); // Reproducir retroalimentación negativa
+    speakText(retryText);
   }
 }
 
-// Manejar eventos del teclado
+// Handle keyboard navigation
 function handleKeyboardNavigation(event) {
   switch (event.key) {
     case "ArrowRight":
-      // Mover al botón de submit desde el campo de entrada
       if (document.activeElement === answerInput) {
         submitButton.focus();
       }
       break;
 
     case "ArrowLeft":
-      // Mover al campo de entrada desde el botón de submit
       if (document.activeElement === submitButton) {
         answerInput.focus();
       }
       break;
 
     case "Enter":
-      // Si el foco está en el campo de entrada o el botón, verificar la respuesta
       if (
         document.activeElement === answerInput ||
         document.activeElement === submitButton
@@ -146,17 +143,18 @@ function handleKeyboardNavigation(event) {
   }
 }
 
-// Reiniciar el juego
+// Restart the game
 function restartGame() {
   currentIndex = 0;
-  restartButton.style.display = "none"; // Ocultar botón de reinicio
+  levelDisplay.textContent = "Level: 1"; // Reset level display
+  restartButton.style.display = "none"; // Hide the restart button
   shuffleNumbers();
   loadNumber();
 }
 
-// Agregar eventos de teclado al documento
+// Add keyboard event listener
 document.addEventListener("keydown", handleKeyboardNavigation);
 
-// Inicializar el juego
+// Initialize the game
 shuffleNumbers();
 loadNumber();

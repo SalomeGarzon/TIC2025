@@ -1,27 +1,86 @@
 body {
-    background-color: #f5f5dc; /* Fondo color crema */
-    color: #333; /* Texto general */
+  background-color: #f5f5dc; /* Fondo color crema */
+  color: #333; /* Texto general */
+  font-family: Arial, sans-serif; /* Tipografía general */
+  margin: 0;
+  padding: 0;
+}
+
+/* Contenedor principal */
+.container {
+  padding: 1rem;
+}
+
+/* Títulos */
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Elementos de resultado */
+.result-item {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+
+.correct {
+  color: #008000; /* Verde para respuestas correctas */
+}
+
+.wrong {
+  color: #ff0000; /* Rojo para respuestas incorrectas */
+}
+
+/* Botones */
+.btn {
+  margin: 10px; /* Separación vertical entre botones */
+  padding: 0.5rem 1rem; /* Tamaño más moderado */
+  border-radius: 8px; /* Bordes redondeados */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Transición suave */
+  width: 100%; /* Botones ocupan toda la anchura en pantallas pequeñas */
+  max-width: 250px; /* Ancho máximo */
+  font-size: 1rem; /* Tamaño de texto moderado */
+  background-color: #FFDA26; /* Color amarillo */
+  color: #000000; /* Texto en color oscuro */
+  border: 2px solid #000000; /* Borde del mismo color */
+}
+
+/* Hover */
+.btn:hover {
+  background-color: #f8e196a4; /* Amarillo más oscuro al pasar el ratón */
+  border: 2px solid #000000;
+  color: #201919; /* Texto blanco */
+  transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+}
+
+/* Específico para botón de reinicio */
+#restart {
+  margin-top: 2rem; /* Espaciado adicional */
+}
+
+/* Media Queries para pantallas pequeñas */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.75rem; /* Tamaño de fuente más pequeño */
   }
-  
-  .emoji {
-    font-size: 2rem;
-    margin-left: 0.5rem;
-  }
-  
+
   .result-item {
-    font-size: 1.5rem;
-    margin-top: 1rem;
+    font-size: 1.25rem; /* Ajuste del tamaño del texto */
   }
-  
-  .correct {
-    color: #008000; /* Verde para respuestas correctas */
+
+  .btn {
+    font-size: 0.9rem; /* Texto de los botones más pequeño */
+    padding: 0.4rem 0.8rem; /* Reducir el espacio interno */
   }
-  
-  .wrong {
-    color: #ff0000; /* Rojo para respuestas incorrectas */
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem; /* Aún más pequeño en pantallas muy pequeñas */
   }
-  
-  #restart {
-    margin-top: 2rem;
+
+  .btn {
+    font-size: 0.8rem; /* Texto más pequeño */
+    padding: 0.3rem 0.6rem; /* Reducir espacio interno */
   }
-  
+}
