@@ -12,3 +12,10 @@ document.getElementById("restart").addEventListener("click", () => {
   sessionStorage.clear(); // Limpiar datos de sessionStorage
   window.location.href = "/TIC2/html//Family/family.html"; // Redirigir a la página inicial
 });
+
+
+// Botón pagina de inicio
+document.getElementById("home").addEventListener("click", () => {
+  sessionStorage.clear(); // Limpiar datos de sessionStorage
+  window.location.href = "/index.html"; // Redirigir a la página inicial
+});
