@@ -47,7 +47,7 @@
   }
   
   /* Botón de reinicio */
-  .restart-button {
+  .restart-button, .home-button {
       background-color: #ffd700;
       padding: 10px;
       margin: 20px;
@@ -59,7 +59,7 @@
       border-radius: 15px;
   }
   
-  .restart-button:hover {
+  .restart-button:hover, .home-button:hover {
     background-color: #CD9B16;
     transform: scale(1.05); /* Efecto de flotación */
     transition: transform 0.3s ease, background-color 0.3s ease;

@@ -28,7 +28,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-
+document.getElementById("home").addEventListener("click", () => {
+  sessionStorage.clear(); // Limpiar datos de sessionStorage
+  window.location.href = "/index.html"; // Redirigir a la página inicial
+});
 
 // Reiniciar el juego
 function restartGame() {
